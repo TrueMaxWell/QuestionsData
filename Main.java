@@ -26,7 +26,9 @@ public class Main {
 
         try {
             Files.write(out, Collections.singleton(result), StandardCharsets.UTF_8);
-            System.out.println("File at : " + in.getParent().toString() + "\\2" + in.getFileName().toString() + "\nContains :\n" + result);
+            System.out.println("File at : " + in.getParent().toString() + "\\2" + in.getFileName().toString() +
+                    "\nContains :\n" + result);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,9 +39,12 @@ public class Main {
     public static void rewriteFile2(String stringPath, int max) {
         String result = checkResult(stringPath, max);
         try {
-            FileOutputStream out = new FileOutputStream(stringPath.substring(0, stringPath.lastIndexOf(".")) + "2" + stringPath.substring(stringPath.lastIndexOf(".")));
+            FileOutputStream out = new FileOutputStream(stringPath.substring(0, stringPath.lastIndexOf(".")) +
+                    "2" + stringPath.substring(stringPath.lastIndexOf(".")));
             out.write(result.getBytes(StandardCharsets.UTF_8));
-            System.out.println("File at : " + stringPath.substring(0, stringPath.lastIndexOf(".")) + "2" + stringPath.substring(stringPath.lastIndexOf(".")) + "\nContains :\n" + result);
+            System.out.println("File at : " + stringPath.substring(0, stringPath.lastIndexOf(".")) + "2" +
+                    stringPath.substring(stringPath.lastIndexOf(".")) + "\nContains :\n" + result);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
