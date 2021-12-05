@@ -13,8 +13,8 @@ public class Main {
     public static void main(String[] args) {
 
         String path = "C:\\Users\\xaxax\\IdeaProjects\\Questions\\src\\com\\company\\Data\\data.csv";
-        rewriteFile(path, 500);
-        rewriteFile2(path, 300);
+        rewriteFile(path, 500);                   //Roma, Zlata, Vlad
+        rewriteFile2(path, 300);                  //Zlata, Vlad
 
 
     }
@@ -22,16 +22,14 @@ public class Main {
     public static void rewriteFile(String stringPath, int max) {
         String result = checkResult(stringPath, max);
         Path in = Paths.get(stringPath);
-        Path file = Paths.get(in.getParent().toString() + "\\2" + in.getFileName().toString());
+        Path out = Paths.get(in.getParent().toString() + "\\2" + in.getFileName().toString());
 
         try {
-            Files.write(file, Collections.singleton(result), StandardCharsets.UTF_8);
-            System.out.println(result + "\nFile at : " + in.getParent().toString() + "\\2" + in.getFileName().toString());
+            Files.write(out, Collections.singleton(result), StandardCharsets.UTF_8);
+            System.out.println(result + "\nFile at : " + in.getParent().toString() + "\\2" + in.getFileName().toString() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
 
     }
@@ -41,7 +39,7 @@ public class Main {
         try {
             FileOutputStream out = new FileOutputStream(stringPath.substring(0, stringPath.lastIndexOf(".")) + "2" + stringPath.substring(stringPath.lastIndexOf(".")));
             out.write(result.getBytes(StandardCharsets.UTF_8));
-            System.out.println(result + "\nFile at : " + stringPath.substring(0, stringPath.lastIndexOf(".")) + "2" + stringPath.substring(stringPath.lastIndexOf(".")));
+            System.out.println(result + "\nFile at : " + stringPath.substring(0, stringPath.lastIndexOf(".")) + "2" + stringPath.substring(stringPath.lastIndexOf(".")) + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
