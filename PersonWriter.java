@@ -1,6 +1,7 @@
 package com.company.Data;
 
+import java.util.List;
+
 public interface PersonWriter {
-    void writePersons(String path);
-    void writeEcoPersons (String path, int max);
+    void writePersons(String path, List<Person> personList);
 }

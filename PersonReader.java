@@ -47,10 +47,7 @@ public class PersonReader {
     public static String allPersonInfoToString (List<Person> personList) {
         StringBuilder stringBuilder = new StringBuilder(Person.getKeys() + "\n");
         for (Person person : personList) {
-            for (String key : person.getPersonFullInfo()) {
-                stringBuilder.append(key).append("|");
-            }
-            stringBuilder.append("\n");
+            stringBuilder.append(person.toString()).append("\n");
         }
         return stringBuilder.toString();
     }
