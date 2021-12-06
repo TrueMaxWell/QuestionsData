@@ -12,14 +12,14 @@ public class PersonWriterNIO implements PersonWriter{
 
     @Override
     public void writePersons(String path, List<Person> personList) {
-        String result = PersonReader.allPersonInfoToString(personList);
         Path in = Paths.get(path);
         Path out = Paths.get(in.getParent().toString() + "\\NIO_" + in.getFileName().toString());
 
         try {
-            Files.write(out, Collections.singleton(result), StandardCharsets.UTF_8);
-            System.out.println("File at : " + in.getParent().toString() + "\\NIO_" + in.getFileName().toString() +
-                    "\nContains :\n" + result);
+            for (Person person : personList) {
+                Files.write(out, Collections.singleton((person.toString() + "\n")), StandardCharsets.UTF_8);
+            }
+            System.out.println("File at : " + in.getParent().toString() + "\\NIO_" + in.getFileName().toString());
 
         } catch (IOException e) {
             e.printStackTrace();

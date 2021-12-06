@@ -43,13 +43,4 @@ public class PersonReader {
         }
         return filterEco;
     }
-
-    public static String allPersonInfoToString (List<Person> personList) {
-        StringBuilder stringBuilder = new StringBuilder(
-                "id|name|waterCount|gasCount1|gasCount2|electroCount1|electroCount2\n");
-        for (Person person : personList) {
-            stringBuilder.append(person.toString()).append("\n");
-        }
-        return stringBuilder.toString();
-    }
 }

@@ -9,13 +9,14 @@ public class PersonWriterIO implements PersonWriter {
 
     @Override
     public void writePersons(String path, List<Person> personList) {
-        String result = PersonReader.allPersonInfoToString(personList);
         try {
             FileOutputStream out = new FileOutputStream(path.substring(0, path.lastIndexOf(".")) +
                     "_IO" + path.substring(path.lastIndexOf(".")));
-            out.write(result.getBytes(StandardCharsets.UTF_8));
+            for (Person person : personList) {
+                out.write((person.toString() + "\n").getBytes(StandardCharsets.UTF_8));
+            }
             System.out.println("File at : " + path.substring(0, path.lastIndexOf(".")) + "_IO" +
-                    path.substring(path.lastIndexOf(".")) + "\nContains :\n" + result);
+                    path.substring(path.lastIndexOf(".")));
 
         } catch (IOException e) {
             e.printStackTrace();
