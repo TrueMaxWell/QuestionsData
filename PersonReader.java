@@ -28,15 +28,11 @@ public class PersonReader {
 
     public static List<Person> filterEco(List<Person> personList, int max) {
         List<Person> filterEco = new ArrayList<>();
-        boolean check;
+
         for (Person person : personList) {
-            check = true;
-            for (int i = 2; i < person.getPersonFullInfo().length; i++) {
-                if (Integer.parseInt(person.getPersonFullInfo()[i]) > max)  {
-                    check = false;
-                }
-            }
-            if (check){
+
+            if (person.getWaterCount() < 500 && person.getGasCount1() + person.getGasCount2() < 500 &&
+                    person.getElectroCount1() + person.getElectroCount2() < 500) {
                 filterEco.add(person);
             }
 

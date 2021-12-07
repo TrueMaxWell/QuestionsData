@@ -10,11 +10,11 @@ public class Main {
         List<Person> ecoPersonList = PersonReader.filterEco(personList, 500);
 
         PersonWriterNIO writerNIO = new PersonWriterNIO();
-        writerNIO.writePersons(path,personList);
+//        writerNIO.writePersons(path,personList);
         writerNIO.writePersons(path, ecoPersonList);
 
         PersonWriterIO writerIO = new PersonWriterIO();
-        writerIO.writePersons(path,personList);
+//        writerIO.writePersons(path,personList);
         writerIO.writePersons(path, ecoPersonList);
 
 
