@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class PersonReader {
 
@@ -27,16 +29,8 @@ public class PersonReader {
     }
 
     public static List<Person> filterEco(List<Person> personList, int max) {
-        List<Person> filterEco = new ArrayList<>();
-
-        for (Person person : personList) {
-
-            if (person.getWaterCount() < 500 && person.getGasCount1() + person.getGasCount2() < 500 &&
-                    person.getElectroCount1() + person.getElectroCount2() < 500) {
-                filterEco.add(person);
-            }
-
-        }
-        return filterEco;
+        return new ArrayList<>(personList).stream().filter(person -> person.getWaterCount() < max &&
+                person.getGasCount1() + person.getGasCount2() < max && person.getElectroCount1() +
+                person.getElectroCount2() < max).collect(Collectors.toList());
     }
 }
